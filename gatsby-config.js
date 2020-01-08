@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: '/embracejs',
   siteMetadata: {
     title: `Embrace JS`,
     description: `How to Embrace JS with .mjs`,
@@ -6,6 +7,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
