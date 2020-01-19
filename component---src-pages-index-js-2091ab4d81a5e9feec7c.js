@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{RXBc:function(e,n,t){"use strict";t.r(n);var a=t("q1tI"),c=t.n(a),r=t("Bl7J"),l=t("vrFN");n.default=function(){return c.a.createElement(r.a,null,c.a.createElement(l.a,{title:"Embrace JS"}),c.a.createElement("h1",null,"Embrace JS"))}}}]);
-//# sourceMappingURL=component---src-pages-index-js-2091ab4d81a5e9feec7c.js.map
