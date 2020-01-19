@@ -1,7 +1,9 @@
 import React from 'react';
-import {Card, CardTitle, CardText} from  'react-md';
+import {Card, CardTitle, CardText, Grid, Cell} from  'react-md';
 
 import Layout from  '../components/layout.mjs';
+
+import './index.scss';
 
 const CATEGORIES = [
   {
@@ -12,8 +14,22 @@ const CATEGORIES = [
         items: [
           {
             summary: 'CLI can generate module output files.',
-            // --out-file-extension
-            // https://babeljs.io/blog/2020/01/11/7.8.0
+            fix: {
+              title: 'v7.8.0',
+              href: 'https://babeljs.io/blog/2020/01/11/7.8.0',
+              // Gotcha: Requires <code>--out-file-extension</code>.
+            },
+          },
+          {
+            summary: 'Supports config files written as modules.',
+            fix: {
+              title: 'v7.8.0',
+              href: 'https://babeljs.io/blog/2020/01/11/7.8.0',
+              // Gotcha: Only when using babel's async APIs.
+            },
+          },
+          {
+            summary: <><code>require</code> hook gives helpful error for modules</>,
           },
         ],
       },
@@ -24,7 +40,7 @@ const CATEGORIES = [
             summary: 'CLI can generate module output files.',
           },
           {
-            summary: <><code>require</code> hook gives helpful error when trying to process a module</>,
+            summary: <><code>require</code> hook gives helpful error for modules</>,
           },
         ],
       },
@@ -74,23 +90,25 @@ export default () => {
   return <Layout>
     <main className="md-toolbar-relative">
       {CATEGORIES.map(cat =>
-        <section key={cat.name}>
-          <h2>{cat.name}</h2>
+        <Grid key={cat.name}>
+          <Cell size={12}><h2>{cat.name}</h2></Cell>
           {cat.items.map(project =>
+            <Cell size={12}>
             <Card key={project.name}>
               <CardTitle title={project.name} />
               <CardText>
-                <ul>
+                <ul className="features">
                   {project.items.map(feature =>
-                    <li>
+                    <li className={feature.fix && 'done'}>
                       {feature.summary}
                     </li>
                   )}
                 </ul>
               </CardText>
             </Card>
+            </Cell>
           )}
-        </section>
+        </Grid>
       )}
     </main>
   </Layout>;

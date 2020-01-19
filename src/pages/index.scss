@@ -1,0 +1,14 @@
+ul.features {
+  line-height: 1.5;
+
+  li {
+    padding-left: 0.5em;
+
+    list-style-position: outside;
+    list-style-type: '✗';
+
+    &.done {
+      list-style-type: '✓';
+    }
+  }
+}
