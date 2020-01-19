@@ -29,7 +29,7 @@ const CATEGORIES = [
             },
           },
           {
-            summary: <><code>require</code> hook gives helpful error for modules</>,
+            summary: <><code>require</code> hook gives helpful error for modules.</>,
           },
         ],
       },
@@ -40,7 +40,7 @@ const CATEGORIES = [
             summary: 'CLI can generate module output files.',
           },
           {
-            summary: <><code>require</code> hook gives helpful error for modules</>,
+            summary: <><code>require</code> hook gives helpful error for modules.</>,
           },
         ],
       },
@@ -61,8 +61,8 @@ const CATEGORIES = [
         name: 'ESLint',
         items: [
           { summary: 'Module extension included by default.' },
-          { summary: 'Defaults `sourceType` to module.' },
-          { summary: <>Doesn't set <code>require</code> etc. as globals within <code>env: node</code>.</> },
+          { summary: <>Defaults <code>sourceType</code> to module.</> },
+          { summary: <>Doesn't include CommonJS arguments in <code>env: node</code>.</> },
         ],
       },
     ],
@@ -74,7 +74,7 @@ const CATEGORIES = [
         name: 'Python',
         items: [
           {
-            summary: 'Sets proper MIME type.',
+            summary: 'Sets proper MIME type for modules.',
             fix: {
               title: 'v3.7.2',
               href: 'https://docs.python.org/3.7/whatsnew/changelog.html#id48',
@@ -86,6 +86,13 @@ const CATEGORIES = [
   },
 ];
 
+function Feature({ fix, summary }) {
+  return <li className={fix && 'done'}>
+    {summary}
+    {fix && <>{' '}<a href={fix.href} rel="noopener">{fix.title}</a></>}
+  </li>;
+}
+
 export default () => {
   return <Layout>
     <main className="md-toolbar-relative">
@@ -93,15 +100,13 @@ export default () => {
         <Grid key={cat.name}>
           <Cell size={12}><h2>{cat.name}</h2></Cell>
           {cat.items.map(project =>
-            <Cell size={12}>
+            <Cell size={6}>
             <Card key={project.name}>
               <CardTitle title={project.name} />
               <CardText>
                 <ul className="features">
                   {project.items.map(feature =>
-                    <li className={feature.fix && 'done'}>
-                      {feature.summary}
-                    </li>
+                    <Feature {...feature} />
                   )}
                 </ul>
               </CardText>
