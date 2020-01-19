@@ -1,7 +1,7 @@
 import React from 'react';
-import {Card, CardTitle, CardText, Grid, Cell} from  'react-md';
+import { Card, CardTitle, CardText, Grid, Cell } from 'react-md';
 
-import Layout from  '../components/layout.mjs';
+import Layout from '../components/layout.mjs';
 
 import './index.scss';
 
@@ -29,7 +29,11 @@ const CATEGORIES = [
             },
           },
           {
-            summary: <><code>require</code> hook gives helpful error for modules.</>,
+            summary: (
+              <>
+                <code>require</code> hook gives helpful error for modules.
+              </>
+            ),
           },
         ],
       },
@@ -40,7 +44,11 @@ const CATEGORIES = [
             summary: 'CLI can generate module output files.',
           },
           {
-            summary: <><code>require</code> hook gives helpful error for modules.</>,
+            summary: (
+              <>
+                <code>require</code> hook gives helpful error for modules.
+              </>
+            ),
           },
         ],
       },
@@ -61,8 +69,20 @@ const CATEGORIES = [
         name: 'ESLint',
         items: [
           { summary: 'Module extension included by default.' },
-          { summary: <>Defaults <code>sourceType</code> to module.</> },
-          { summary: <>Doesn't include CommonJS arguments in <code>env: node</code>.</> },
+          {
+            summary: (
+              <>
+                Defaults <code>sourceType</code> to module.
+              </>
+            ),
+          },
+          {
+            summary: (
+              <>
+                Doesn't include CommonJS arguments in <code>env: node</code>.
+              </>
+            ),
+          },
         ],
       },
     ],
@@ -87,34 +107,47 @@ const CATEGORIES = [
 ];
 
 function Feature({ fix, summary }) {
-  return <li className={fix && 'done'}>
-    {summary}
-    {fix && <>{' '}<a href={fix.href} rel="noopener">{fix.title}</a></>}
-  </li>;
+  return (
+    <li className={fix && 'done'}>
+      {summary}
+      {fix && (
+        <>
+          {' '}
+          <a href={fix.href} rel="noopener">
+            {fix.title}
+          </a>
+        </>
+      )}
+    </li>
+  );
 }
 
 export default () => {
-  return <Layout>
-    <main className="md-toolbar-relative">
-      {CATEGORIES.map(cat =>
-        <Grid key={cat.name}>
-          <Cell size={12}><h2>{cat.name}</h2></Cell>
-          {cat.items.map(project =>
-            <Cell size={6}>
-            <Card key={project.name}>
-              <CardTitle title={project.name} />
-              <CardText>
-                <ul className="features">
-                  {project.items.map(feature =>
-                    <Feature {...feature} />
-                  )}
-                </ul>
-              </CardText>
-            </Card>
+  return (
+    <Layout>
+      <main className="md-toolbar-relative">
+        {CATEGORIES.map(cat => (
+          <Grid key={cat.name}>
+            <Cell size={12}>
+              <h2>{cat.name}</h2>
             </Cell>
-          )}
-        </Grid>
-      )}
-    </main>
-  </Layout>;
+            {cat.items.map(project => (
+              <Cell size={6}>
+                <Card key={project.name}>
+                  <CardTitle title={project.name} />
+                  <CardText>
+                    <ul className="features">
+                      {project.items.map(feature => (
+                        <Feature {...feature} />
+                      ))}
+                    </ul>
+                  </CardText>
+                </Card>
+              </Cell>
+            ))}
+          </Grid>
+        ))}
+      </main>
+    </Layout>
+  );
 };
