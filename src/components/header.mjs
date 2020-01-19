@@ -1,4 +1,5 @@
 import React from 'react';
+import {Helmet} from "react-helmet";
 import {Toolbar} from 'react-md';
 
 const LOGO_STYLE = {
@@ -12,7 +13,7 @@ const BRACE_STYLE = {
   color: '#ccc',
 };
 
-const Header = () => {
+const Header = (props) => {
   const logo = <span>
     <span style={LOGO_STYLE}>
       <span style={BRACE_STYLE}>{'{'}</span>
@@ -22,6 +23,9 @@ const Header = () => {
     </span>
   </span>;
   return <>
+    <Helmet>
+      <title>{props.siteTitle}</title>
+    </Helmet>
     <Toolbar title={logo} colored={true} fixed={true} />
   </>;
 };
