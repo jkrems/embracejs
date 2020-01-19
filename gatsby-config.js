@@ -1,5 +1,4 @@
 module.exports = {
-  pathPrefix: '/embracejs',
   siteMetadata: {
     title: `Embrace JS`,
     description: `How to Embrace JS with .mjs`,
