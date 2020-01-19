@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, CardTitle, CardText, Grid, Cell } from 'react-md';
+import PropTypes from 'prop-types';
 
 import Layout from '../components/layout.mjs';
 
@@ -79,7 +80,8 @@ const CATEGORIES = [
           {
             summary: (
               <>
-                Doesn't include CommonJS arguments in <code>env: node</code>.
+                Doesn&apos;t include CommonJS arguments in{' '}
+                <code>env: node</code>.
               </>
             ),
           },
@@ -121,8 +123,15 @@ function Feature({ fix, summary }) {
     </li>
   );
 }
+Feature.propTypes = {
+  fix: PropTypes.shape({
+    href: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+  }),
+  summary: PropTypes.string.isRequired,
+};
 
-export default () => {
+export default function FeatureOverview() {
   return (
     <Layout>
       <main className="md-toolbar-relative">
@@ -132,13 +141,13 @@ export default () => {
               <h2>{cat.name}</h2>
             </Cell>
             {cat.items.map(project => (
-              <Cell size={6}>
-                <Card key={project.name}>
+              <Cell size={6} key={project.name}>
+                <Card>
                   <CardTitle title={project.name} />
                   <CardText>
                     <ul className="features">
                       {project.items.map(feature => (
-                        <Feature {...feature} />
+                        <Feature key={feature.summary} {...feature} />
                       ))}
                     </ul>
                   </CardText>
@@ -150,4 +159,4 @@ export default () => {
       </main>
     </Layout>
   );
-};
+}
