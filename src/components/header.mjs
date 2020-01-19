@@ -2,34 +2,31 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Toolbar } from 'react-md';
 
-const LOGO_STYLE = {
-  fontFamily: 'Source Code Pro',
-  fontSize: '32px',
-  fontWeight: 600,
-  lineHeight: '58px',
-};
-
-const BRACE_STYLE = {
-  color: '#ccc',
-};
-
 const Header = props => {
-  const logo = (
-    <span>
-      <span style={LOGO_STYLE}>
-        <span style={BRACE_STYLE}>{'{'}</span>
-        {'m'}
-        <span style={BRACE_STYLE}>{'}'}</span>
-        {'js'}
-      </span>
-    </span>
-  );
   return (
     <>
       <Helmet>
         <title>{props.siteTitle}</title>
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
       </Helmet>
-      <Toolbar title={logo} colored={true} fixed={true} />
+      <Toolbar title="Embrace JS" colored={true} fixed={true} />
     </>
   );
 };
