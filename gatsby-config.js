@@ -4,10 +4,5 @@ module.exports = {
     description: `How to Embrace JS with .mjs`,
     author: `@jankrems`,
   },
-  plugins: [
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sass`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-  ],
+  plugins: [`gatsby-plugin-react-helmet`, `gatsby-plugin-sass`],
 };
