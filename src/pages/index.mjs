@@ -156,7 +156,7 @@ const CATEGORIES = [
     name: 'Serving',
     items: [
       {
-        name: 'Python',
+        name: 'Python 3',
         items: [
           {
             summary: 'Sets proper MIME type for modules.',
@@ -164,6 +164,15 @@ const CATEGORIES = [
               title: 'v3.7.2',
               href: 'https://docs.python.org/3.7/whatsnew/changelog.html#id48',
             },
+          },
+        ],
+      },
+      {
+        name: 'npx http-server',
+        items: [
+          {
+            summary: 'Sets proper MIME type for modules.',
+            fix: true,
           },
         ],
       },
@@ -175,7 +184,7 @@ function Feature({ fix, summary, footnote }) {
   return (
     <li className={fix && 'done'}>
       {summary}
-      {fix && (
+      {fix && fix !== true && (
         <>
           {' '}
           <a href={fix.href} rel="noopener">
