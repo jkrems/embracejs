@@ -221,8 +221,8 @@ function renderProject(project) {
           </ul>
           {notes.length > 0 && (
             <ol className="footnotes">
-              {notes.map(note => {
-                return <li>{note}</li>;
+              {notes.map((note, idx) => {
+                return <li key={idx}>{note}</li>;
               })}
             </ol>
           )}
