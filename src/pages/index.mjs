@@ -18,7 +18,11 @@ const CATEGORIES = [
             fix: {
               title: 'v7.8.0',
               href: 'https://babeljs.io/blog/2020/01/11/7.8.0',
-              // Gotcha: Requires <code>--out-file-extension</code>.
+              note: (
+                <>
+                  Requires <code>--out-file-extension</code>.
+                </>
+              ),
             },
           },
           {
@@ -26,7 +30,7 @@ const CATEGORIES = [
             fix: {
               title: 'v7.8.0',
               href: 'https://babeljs.io/blog/2020/01/11/7.8.0',
-              // Gotcha: Only when using babel's async APIs.
+              note: <>Only when using babel&apos;s async APIs.</>,
             },
           },
           {
@@ -93,6 +97,57 @@ const CATEGORIES = [
               </>
             ),
           },
+          {
+            summary: (
+              <>
+                CommonJS configuration can be provided in a <code>.cjs</code>{' '}
+                file.
+              </>
+            ),
+            fix: {
+              title: 'v6.8.0',
+              href: 'https://github.com/eslint/eslint/releases/tag/v6.8.0',
+            },
+            docs:
+              'https://eslint.org/docs/user-guide/configuring#configuration-file-formats',
+          },
+          {
+            summary: (
+              <>
+                ESM configuration can be provided in a <code>.mjs</code> file.
+              </>
+            ),
+          },
+        ],
+      },
+      {
+        name: 'Prettier',
+        items: [
+          {
+            summary: 'Module extension included by default.',
+            fix: {
+              title: 'v7.8.0',
+              href: 'https://babeljs.io/blog/2020/01/11/7.8.0',
+              // Gotcha: Only when using babel's async APIs.
+            },
+          },
+          {
+            summary: (
+              <>
+                CommonJS configuration can be provided in a <code>.cjs</code>{' '}
+                file.
+              </>
+            ),
+            bug: 'https://github.com/prettier/prettier/issues/7049',
+          },
+          {
+            summary: (
+              <>
+                ESM configuration can be provided in a <code>.mjs</code> file.
+              </>
+            ),
+            bug: 'https://github.com/prettier/prettier/issues/7049',
+          },
         ],
       },
     ],
@@ -116,7 +171,7 @@ const CATEGORIES = [
   },
 ];
 
-function Feature({ fix, summary }) {
+function Feature({ fix, summary, footnote }) {
   return (
     <li className={fix && 'done'}>
       {summary}
@@ -128,6 +183,7 @@ function Feature({ fix, summary }) {
           </a>
         </>
       )}
+      {footnote && <sup>{footnote}</sup>}
     </li>
   );
 }
@@ -137,7 +193,44 @@ Feature.propTypes = {
     title: PropTypes.string.isRequired,
   }),
   summary: PropTypes.string.isRequired,
+  footnote: PropTypes.number,
 };
+
+function renderProject(project) {
+  let notes = [];
+  return (
+    <Cell size={6} key={project.name}>
+      <Card>
+        <CardTitle title={project.name} />
+        <CardText>
+          <ul className="features">
+            {project.items.map(feature => {
+              let noteIdx = null;
+              if (feature.fix && feature.fix.note) {
+                notes.push(feature.fix.note);
+                noteIdx = notes.length;
+              }
+              return (
+                <Feature
+                  key={feature.summary}
+                  footnote={noteIdx}
+                  {...feature}
+                />
+              );
+            })}
+          </ul>
+          {notes.length > 0 && (
+            <ol className="footnotes">
+              {notes.map(note => {
+                return <li>{note}</li>;
+              })}
+            </ol>
+          )}
+        </CardText>
+      </Card>
+    </Cell>
+  );
+}
 
 export default function FeatureOverview() {
   return (
@@ -148,20 +241,7 @@ export default function FeatureOverview() {
             <Cell size={12}>
               <h2>{cat.name}</h2>
             </Cell>
-            {cat.items.map(project => (
-              <Cell size={6} key={project.name}>
-                <Card>
-                  <CardTitle title={project.name} />
-                  <CardText>
-                    <ul className="features">
-                      {project.items.map(feature => (
-                        <Feature key={feature.summary} {...feature} />
-                      ))}
-                    </ul>
-                  </CardText>
-                </Card>
-              </Cell>
-            ))}
+            {cat.items.map(renderProject)}
           </Grid>
         ))}
       </main>
