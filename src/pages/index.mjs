@@ -59,6 +59,14 @@ const CATEGORIES = [
           {
             summary: 'CLI can generate module output files.',
           },
+          {
+            summary: (
+              <>
+                Doesn&apos;t include CommonJS arguments as globals in{' '}
+                <code>@types/node</code>.
+              </>
+            ),
+          },
         ],
       },
     ],
@@ -80,7 +88,7 @@ const CATEGORIES = [
           {
             summary: (
               <>
-                Doesn&apos;t include CommonJS arguments in{' '}
+                Doesn&apos;t include CommonJS arguments as globals in{' '}
                 <code>env: node</code>.
               </>
             ),
