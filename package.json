@@ -16,10 +16,12 @@
     "react-md": "^1.14.0"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
     "eslint": "^6.8.0",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.18.0",
     "gh-pages": "^2.2.0",
+    "node-fetch": "^2.6.0",
     "prettier": "^1.19.1"
   },
   "keywords": [
