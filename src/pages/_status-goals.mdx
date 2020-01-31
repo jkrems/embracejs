@@ -1,0 +1,20 @@
+## What's the Goal?
+
+### Tools that produce JavaScript modules...
+
+* Can generate files with the extension `.mjs`.
+* Write only contents that follow module semantics into `.mjs` files.
+
+### Tools that consume or run JavaScript modules...
+
+* Can handle files with the extension `.mjs`.
+* Always treat `.mjs` files as JavaScript modules.
+* Don't allow synchronous access to loading JavaScript modules.
+* Don't include CommonJS arguments inside of JavaScript modules.
+
+### Tools that consume or run CommonJS scripts...
+
+* Can handle files with the extension `.cjs`.
+* Always treat `.cjs` files as JavaScript modules.
+* Offer comparable support for JavaScript modules.
+* Don't allow `require` of JavaScript modules.

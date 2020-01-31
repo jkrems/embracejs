@@ -1,8 +1,29 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Toolbar } from 'react-md';
+import { Button, Toolbar } from 'react-md';
 
 const Header = props => {
+  const toolbarTitle = (
+    <span>
+      <img
+        src="/android-chrome-192x192.png"
+        align="top"
+        width="64"
+        height="64"
+      />
+    </span>
+  );
+  const actions = [
+    <Button flat key="guide" href="/guide">
+      Guide
+    </Button>,
+    <Button flat key="status" href="/status">
+      Status
+    </Button>,
+    <Button flat key="glossary" href="/glossary">
+      Glossary
+    </Button>,
+  ];
   return (
     <>
       <Helmet>
@@ -26,7 +47,12 @@ const Header = props => {
         />
         <link rel="manifest" href="/site.webmanifest" />
       </Helmet>
-      <Toolbar title="Embrace JS" colored={true} fixed={true} />
+      <Toolbar
+        title={toolbarTitle}
+        fixed
+        style={{ backgroundColor: '#f7df1e' }}
+        actions={actions}
+      />
     </>
   );
 };
