@@ -19,6 +19,7 @@
     "react-md": "^1.14.0"
   },
   "devDependencies": {
+    "c8": "^7.0.1",
     "chai": "^4.2.0",
     "eslint": "^6.8.0",
     "eslint-plugin-prettier": "^3.1.2",

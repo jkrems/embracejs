@@ -58,7 +58,18 @@ export const CATEGORIES = [
               href: 'https://node-tap.org/changelog/#123-2019-01-22',
             },
           },
-          { summary: 'Coverage is reported for modules.' },
+          {
+            summary: 'Coverage is reported for modules.',
+            fix: {
+              title: 'v12.3.0',
+              href: 'https://node-tap.org/changelog/#123-2019-01-22',
+              note: (
+                <>
+                  Requires the use of <code>c8 tap --no-coverage [...]</code>.
+                </>
+              ),
+            },
+          },
         ],
       },
     ],
