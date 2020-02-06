@@ -2,6 +2,68 @@ import React from 'react';
 
 export const CATEGORIES = [
   {
+    name: 'Testing',
+    items: [
+      {
+        name: 'Jest',
+        items: [
+          // https://github.com/facebook/jest/issues/9430
+          {
+            summary: 'Runs test files from native modules.',
+          },
+          { summary: 'Module extension included by default.' },
+          { summary: 'Supports watch mode for modules.' },
+        ],
+      },
+      {
+        name: 'Mocha',
+        items: [
+          // https://github.com/mochajs/mocha/pull/4038
+          // Potentially will be supported in mocha 7 (mocha@7.0.0-esm1)
+          {
+            summary: 'Runs test files from native modules.',
+          },
+          { summary: 'Module extension included by default.' },
+          { summary: 'Supports watch mode for modules.' },
+        ],
+      },
+      {
+        name: 'Tap',
+        // Docs: https://node-tap.org/docs/using-with/
+        items: [
+          {
+            summary: 'Runs test files from native modules.',
+            fix: {
+              title: 'v12.3.0',
+              href: 'https://node-tap.org/changelog/#123-2019-01-22',
+              note: (
+                <>
+                  Requires <code>--no-esm</code> unless all modules use{' '}
+                  <code>.mjs</code>.
+                </>
+              ),
+            },
+          },
+          {
+            summary: 'Module extension included by default.',
+            fix: {
+              title: 'v12.3.0',
+              href: 'https://node-tap.org/changelog/#123-2019-01-22',
+            },
+          },
+          {
+            summary: 'Supports watch mode for modules.',
+            fix: {
+              title: 'v12.3.0',
+              href: 'https://node-tap.org/changelog/#123-2019-01-22',
+            },
+          },
+          { summary: 'Coverage is reported for modules.' },
+        ],
+      },
+    ],
+  },
+  {
     name: 'Compilers',
     items: [
       {
