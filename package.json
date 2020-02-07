@@ -19,6 +19,7 @@
     "react-md": "^1.14.0"
   },
   "devDependencies": {
+    "ava": "^3.2.0",
     "c8": "^7.0.1",
     "chai": "^4.2.0",
     "eslint": "^6.8.0",
@@ -29,7 +30,8 @@
     "node-fetch": "^2.6.0",
     "prettier": "^1.19.1",
     "send": "^0.17.1",
-    "tap": "^14.10.6"
+    "tap": "^14.10.6",
+    "teenytest": "^5.3.0"
   },
   "keywords": [
     "website",

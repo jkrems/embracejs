@@ -5,6 +5,20 @@ export const CATEGORIES = [
     name: 'Testing',
     items: [
       {
+        // https://github.com/avajs/ava
+        // ```
+        // AVA cannot yet load ESM files
+        // ```
+        name: 'Ava',
+        items: [
+          {
+            summary: 'Runs test files from native modules.',
+            bug: 'https://github.com/avajs/ava/issues/2293',
+          },
+          { summary: 'Module extension included by default.' },
+        ],
+      },
+      {
         name: 'Jest',
         items: [
           // https://github.com/facebook/jest/issues/9430
@@ -69,6 +83,19 @@ export const CATEGORIES = [
                 </>
               ),
             },
+          },
+        ],
+      },
+      {
+        // https://github.com/testdouble/teenytest
+        // ```
+        // teenytest 'examples/teenytest/**/*.test.*'
+        // ```
+        name: 'Teenytest',
+        items: [
+          {
+            summary: 'Runs test files from native modules.',
+            bug: 'https://github.com/testdouble/teenytest/issues/52',
           },
         ],
       },
