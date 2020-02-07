@@ -97,6 +97,7 @@ export const CATEGORIES = [
             summary: 'Runs test files from native modules.',
             bug: 'https://github.com/testdouble/teenytest/issues/52',
           },
+          { summary: 'Module extension included by default.' },
         ],
       },
     ],
