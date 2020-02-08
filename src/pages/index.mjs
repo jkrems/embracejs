@@ -8,7 +8,17 @@ import './index.scss';
 import { CATEGORIES } from './_status-list.mjs';
 import StatusGoals from './_status-goals.mdx';
 
-function Feature({ fix, summary, footnote }) {
+function renderBug(bug) {
+  const issueMatch = bug.match(/\/(?:issues|pull)\/(\d+)/);
+  const label = issueMatch ? `#${issueMatch[1]}` : 'Bug';
+  return (
+    <a href={bug} rel="noopener">
+      {label}
+    </a>
+  );
+}
+
+function Feature({ bug, fix, summary, footnote }) {
   return (
     <li className={fix && 'done'}>
       {summary}
@@ -20,6 +30,7 @@ function Feature({ fix, summary, footnote }) {
           </a>
         </>
       )}
+      {!fix && bug && <> {renderBug(bug)}</>}
       {footnote && <sup>{footnote}</sup>}
     </li>
   );
@@ -30,6 +41,7 @@ Feature.propTypes = {
     title: PropTypes.string.isRequired,
   }),
   summary: PropTypes.string.isRequired,
+  bug: PropTypes.string,
   footnote: PropTypes.number,
 };
 

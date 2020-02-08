@@ -5,45 +5,80 @@ export const CATEGORIES = [
     name: 'Testing',
     items: [
       {
-        // https://github.com/avajs/ava
-        // ```
-        // AVA cannot yet load ESM files
-        // ```
         name: 'Ava',
         items: [
           {
             summary: 'Runs test files from native modules.',
             bug: 'https://github.com/avajs/ava/issues/2293',
           },
-          { summary: 'Module extension included by default.' },
+          {
+            summary: 'Module extension included by default.',
+            bug: 'https://github.com/avajs/ava/issues/2293',
+          },
         ],
       },
       {
         name: 'Jest',
         items: [
-          // https://github.com/facebook/jest/issues/9430
           {
             summary: 'Runs test files from native modules.',
+            bug: 'https://github.com/facebook/jest/issues/9430',
           },
-          { summary: 'Module extension included by default.' },
-          { summary: 'Supports watch mode for modules.' },
+          {
+            summary: 'Module extension included by default.',
+            bug: 'https://github.com/facebook/jest/issues/9430',
+          },
+          {
+            summary: 'Supports watch mode for modules.',
+            bug: 'https://github.com/facebook/jest/issues/9430',
+          },
+          {
+            summary: (
+              <>
+                CommonJS configuration can be provided in a <code>.cjs</code>{' '}
+                file.
+              </>
+            ),
+            fix: {
+              title: 'v25.1.0',
+              href:
+                'https://github.com/facebook/jest/blob/master/CHANGELOG.md#2510',
+            },
+            docs:
+              'https://jestjs.io/blog/2020/01/21/jest-25.html#ecmascript-modules-support',
+          },
+          {
+            summary: (
+              <>
+                ESM configuration can be provided in a <code>.mjs</code> file.
+              </>
+            ),
+            fix: {
+              title: 'v25.1.0',
+              href:
+                'https://github.com/facebook/jest/blob/master/CHANGELOG.md#2510',
+            },
+            docs:
+              'https://jestjs.io/blog/2020/01/21/jest-25.html#ecmascript-modules-support',
+          },
         ],
       },
       {
         name: 'Mocha',
         items: [
-          // https://github.com/mochajs/mocha/pull/4038
-          // Potentially will be supported in mocha 7 (mocha@7.0.0-esm1)
           {
             summary: 'Runs test files from native modules.',
+            bug: 'https://github.com/mochajs/mocha/pull/4038',
           },
-          { summary: 'Module extension included by default.' },
+          {
+            summary: 'Module extension included by default.',
+            bug: 'https://github.com/mochajs/mocha/pull/4038',
+          },
           { summary: 'Supports watch mode for modules.' },
         ],
       },
       {
         name: 'Tap',
-        // Docs: https://node-tap.org/docs/using-with/
         items: [
           {
             summary: 'Runs test files from native modules.',
@@ -57,6 +92,7 @@ export const CATEGORIES = [
                 </>
               ),
             },
+            docs: 'https://node-tap.org/docs/using-with/',
           },
           {
             summary: 'Module extension included by default.',
