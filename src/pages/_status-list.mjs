@@ -215,6 +215,8 @@ export const CATEGORIES = [
                 <code>@types/node</code>.
               </>
             ),
+            bug:
+              'https://github.com/DefinitelyTyped/DefinitelyTyped/issues/42201',
           },
           {
             summary: (
@@ -222,6 +224,7 @@ export const CATEGORIES = [
                 <code>ts-node file.mjs</code> works with native modules.
               </>
             ),
+            bug: 'https://github.com/TypeStrong/ts-node/issues/935',
           },
         ],
       },
