@@ -207,6 +207,7 @@ export const CATEGORIES = [
         items: [
           {
             summary: 'CLI can generate module output files.',
+            bug: 'https://github.com/microsoft/TypeScript/issues/18442',
           },
           {
             summary: (
