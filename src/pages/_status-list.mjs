@@ -226,6 +226,24 @@ export const CATEGORIES = [
             ),
             bug: 'https://github.com/TypeStrong/ts-node/issues/935',
           },
+          {
+            summary: (
+              <>
+                TypeScript files can import CommonJS from <code>.cjs</code>{' '}
+                files.
+              </>
+            ),
+            bug: 'https://github.com/microsoft/TypeScript/issues/10939',
+          },
+          {
+            summary: (
+              <>
+                TypeScript files can import modules from <code>.mjs</code>{' '}
+                files.
+              </>
+            ),
+            bug: 'https://github.com/microsoft/TypeScript/issues/10939',
+          },
         ],
       },
     ],
