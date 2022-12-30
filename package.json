@@ -7,7 +7,7 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.5.5",
     "@mdx-js/react": "^1.5.5",
-    "gatsby": "^2.18.12",
+    "gatsby": "^2.32.13",
     "gatsby-plugin-mdx": "^1.0.69",
     "gatsby-plugin-react-helmet": "^3.1.16",
     "gatsby-plugin-sass": "^2.1.26",
@@ -26,7 +26,7 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.18.0",
     "gh-pages": "^2.2.0",
-    "mocha": "^7.0.0-esm1",
+    "mocha": "^10.2.0",
     "node-fetch": "^2.6.1",
     "prettier": "^1.19.1",
     "send": "^0.17.1",
